@@ -5,12 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hello world</title>
+    <style>
+        html {
+            font-size:16px;
+            box-sizing: border-box;
+            color:#fff;
+        }
+        body {
+            background-color: #1e131d;
+        }
+        h1 { 
+            font-weight: 700;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+        .container {
+           width:100%;
+        }
+        .main {
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-con {
+            overflow: hidden;
+            margin:0 0 15px 0;
+            padding:0 0 5px 0;
+        }
+        .img-con img {
+            border-radius: 15px;
+            margin-top:5px;
+        }
+        .divider {
+            border-bottom: 3px solid grey;
+            border-radius: 2px;
+            margin:0 10px;
+        }
+        .footer-p {
+            font-size:0.8rem;
+            text-align: end;
+        }
+    </style>
+    <script>
+        
+    </script>
 </head>
-<body>
-    <h1>龙驹坝的road</h1>
-    <img src="./img/road1.jpg" alt="">
-    <img src="./img/215137 (1).jpg" alt="">
-    <img src="./img/287c94e0-5129-4b1c-db41-f8cc0b4cad00.jpg" alt="">
+<body> 
+    <div class="container">
+        <h1>The radiance shall never dim.</h1>
+        <div class="main">
+            <div class="img-con">
+                <img src="./img/215137 (1).jpg" alt="">
+                <div class="divider"></div>
+            </div>
+            <div class="img-con">
+                <img src="./img/287c94e0-5129-4b1c-db41-f8cc0b4cad00.jpg" alt="">
+                <div class="divider"></div>
+            </div>
+        </div>
+        <p class="footer-p">images from civitai</p>
+    </div>
 </body>
 <script>
     

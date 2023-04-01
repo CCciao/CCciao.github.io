@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hello world</title>
-    <style>
+    <!-- <style>
         html {
             font-size:16px;
             box-sizing: border-box;
@@ -46,13 +47,11 @@
             font-size:0.8rem;
             text-align: end;
         }
-    </style>
-    <script>
-        
-    </script>
+    </style> -->
 </head>
-<body> 
-    <div class="container">
+
+<body>
+    <!-- <div class="container">
         <h1>The radiance shall never dim.</h1>
         <div class="main">
             <div class="img-con">
@@ -65,9 +64,77 @@
             </div>
         </div>
         <p class="footer-p">images from civitai</p>
+    </div> -->
+    <style>
+        .gallery-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            background-color: grey;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+    </style>
+    <div class="gallery-container">
+        <div class="slider"></div>
     </div>
+
+    <script>
+        let animeArr = [
+                "./img/anime16-9/00001.png", "./img/anime16-9/00002.png",
+                "./img/anime16-9/00003.png", "./img/anime16-9/00004.png"
+            ]
+            const slider = document.getElementsByClassName("slider")[0]
+            const imgNum = animeArr.length
+            let currentImgIndex = 0
+            let firstImgWidth
+        function onloadimg() {
+            
+            // 将图片添加到slider元素
+            for (let i = 0; i < animeArr.length; i++) {
+                let img = document.createElement('img')
+                img.setAttribute("src", animeArr[i])
+                slider.appendChild(img)
+            }
+
+            // 获取第一张图片的宽度 
+            const firstImg = document.getElementsByTagName('img')[0]
+            if (firstImg.complete) {
+                firstImgWidth = firstImg.width
+                console.log(firstImgWidth)
+                setInterval(nextImg, 2000)
+            } else {
+                firstImg.onload = function () {
+                    firstImgWidth = firstImg.width
+                    console.log(firstImgWidth)
+                    setInterval(nextImg, 2000)
+                }
+            }
+        }
+        
+        function moveSlider(i) {
+            slider.style.transform = "translateX(-" + i * firstImgWidth + "px)"
+            currentImgIndex = i;
+        }
+        function nextImg() {
+            if (currentImgIndex == imgNum - 1) {
+                moveSlider(0)
+            } else {
+                moveSlider(currentImgIndex + 1)
+            }
+        }
+        onloadimg()
+        
+    </script>
 </body>
 <script>
-    
+
 </script>
+
 </html>

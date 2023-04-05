@@ -70,7 +70,7 @@
             width: 100%;
             overflow: hidden;
         }
-
+    
         .slider {
             display: flex;
             background-color: grey;
@@ -94,6 +94,7 @@
             const imgNum = animeArr.length
             let currentImgIndex = 0
             let firstImgWidth
+        
         function onloadimg() {
             
             // 将图片添加到slider元素
@@ -102,9 +103,9 @@
                 img.setAttribute("src", animeArr[i])
                 slider.appendChild(img)
             }
-
             // 获取第一张图片的宽度 
             const firstImg = document.getElementsByTagName('img')[0]
+            
             if (firstImg.complete) {
                 firstImgWidth = firstImg.width
                 console.log(firstImgWidth)

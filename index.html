@@ -84,7 +84,112 @@
     <div class="gallery-container">
         <div class="slider"></div>
     </div>
-
+    <p>        style
+                .gallery-container {
+        
+                    width: 100%;
+        
+                    overflow: hidden;
+        
+                }
+        
+                .slider {
+        
+                    display: flex;
+        
+                    background-color: grey;
+        
+                    transition: transform 0.5s ease-in-out;
+        
+                }
+        
+          
+        
+                .slider img {
+        
+                    width: 100%;
+        
+                }
+        
+            script
+        
+                let animeArr = [
+        
+                        "./img/anime16-9/00001.png", "./img/anime16-9/00002.png",
+        
+                        "./img/anime16-9/00003.png", "./img/anime16-9/00004.png"
+        
+                    ]
+        
+                    const slider = document.getElementsByClassName("slider")[0]
+        
+                    const imgNum = animeArr.length
+        
+                    let currentImgIndex = 0
+        
+                    let firstImgWidth
+        
+                function onloadimg() {
+        
+                    for (let i = 0; i < animeArr.length; i++) {
+        
+                        let img = document.createElement('img')
+        
+                        img.setAttribute("src", animeArr[i])
+        
+                        slider.appendChild(img)
+        
+                    }
+        
+                    const firstImg = document.getElementsByTagName('img')[0]
+        
+                    if (firstImg.complete) {
+        
+                        firstImgWidth = firstImg.width
+        
+                        console.log(firstImgWidth)
+        
+                        setInterval(nextImg, 2000)
+        
+                    } else {
+        
+                        firstImg.onload = function () {
+        
+                            firstImgWidth = firstImg.width
+        
+                            console.log(firstImgWidth)
+        
+                            setInterval(nextImg, 2000)
+        
+                        }
+        
+                    }
+        
+                }
+        
+                function moveSlider(i) {
+        
+                    slider.style.transform = "translateX(-" + i * firstImgWidth + "px)"
+        
+                    currentImgIndex = i;
+        
+                }
+        
+                function nextImg() {
+        
+                    if (currentImgIndex == imgNum - 1) {
+        
+                        moveSlider(0)
+        
+                    } else {
+        
+                        moveSlider(currentImgIndex + 1)
+        
+                    }
+        
+                }
+        
+                onloadimg()</p>
     <script>
         let animeArr = [
                 "./img/anime16-9/00001.png", "./img/anime16-9/00002.png",
@@ -97,13 +202,13 @@
         
         function onloadimg() {
             
-            // 将图片添加到slider元素
+            
             for (let i = 0; i < animeArr.length; i++) {
                 let img = document.createElement('img')
                 img.setAttribute("src", animeArr[i])
                 slider.appendChild(img)
             }
-            // 获取第一张图片的宽度 
+             
             const firstImg = document.getElementsByTagName('img')[0]
             
             if (firstImg.complete) {

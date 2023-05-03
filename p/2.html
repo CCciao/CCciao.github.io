@@ -25,11 +25,11 @@
         var inp2 = document.getElementById("inp2")
         var inp3 = document.getElementById("inp3")
         let t = 0 // 计数器
-        let t1 // 增加定时器
-        let t2 // 减少定时器
+        let t1 // 增加器
+        let t2 // 减少器
         let isOn = 0 // 运行状态器
         let aORd = -1 // 增减判断器 0 增加中 1 减少中
-        let interval = inp2.value // 速率器 // 作为参数传递给函数，这里无论是原始值，还是应用值，修改后如果不重新执行函数，速率依旧
+        let interval = inp2.value // 速率器 // 作为参数传递给函数，这里无论是原始值，还是引用值，修改后如果不重新执行函数，速率依旧
         let step = inp3.value // 步值器 // 作为值，在函数内访问
         inp2.onchange = function () {
             interval = inp2.value
